@@ -1,0 +1,257 @@
+@charset "UTF-8";
+:root {
+  --rotate: 14s;
+}
+
+.main-navigation {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner {
+  position: relative;
+  animation: mooveDown 2s 300ms both;
+}
+.banner__container--video {
+  position: absolute;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .banner__container--video {
+    display: none;
+  }
+}
+.banner__logo {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  animation: mooveUpImage 2s 300ms both, floating-animation 6s 2s infinite ease-in-out;
+}
+
+@keyframes mooveUpImage {
+  0% {
+    transform: translateY(600px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes floating-animation {
+  10% {
+    transform: translate3d(0, 5px, 0);
+  }
+  30% {
+    transform: translate3d(0, -10px, 0);
+  }
+  43% {
+    transform: translate3d(8px, 0, 0);
+  }
+  50% {
+    transform: translate3d(-2px, -6px, O);
+  }
+  60% {
+    transform: translate3d(4px, -2px, 0);
+  }
+  72% {
+    transform: translate3d(-8px, 6px, 0);
+  }
+  85% {
+    transform: translate3d(-2px, 3px, 0);
+  }
+}
+@keyframes mooveDown {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+@keyframes fade-In-From-Bottom { /* ANIMATION ENTRANTE VERS LE BAS */
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-from-top { /* ANIMATION ENTRANTE VERS LE HAUT */
+  from {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes title-animation {
+  100% {
+    transform: translateY(0%);
+  }
+}
+.story {
+  animation: fade-In-From-Bottom 1s ease-in-out;
+}
+
+.story h2 {
+  background-image: url("../../../foce/assets/images/purple_title_bg.png");
+  animation: fadeUp_purple_background 1s ease-in-out;
+}
+
+span.title {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform 1s, opacity 0.5s;
+}
+
+.title-animation:nth-child(1) {
+  animation: fade-In-From-Bottom 0.6s ease-in-out forwards;
+}
+
+.title-animation:nth-child(2) {
+  animation: fade-In-From-Bottom 0.8s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+/*** SECTION STUDIO KOUKAKI ***/
+#story,
+#studio,
+footer {
+  opacity: 0;
+  animation: fade-In-From-Bottom 1.5s 0.5s forwards;
+}
+
+.studio_paragraphe {
+  animation: p-sections-fade-in 1.5s 0.5s forwards;
+}
+
+/*** Section lieu ***/
+.story__place {
+  background-image: url("../images/place_bg.png");
+  background-repeat: no-repeat;
+  animation: fadeUp_purple_background 2s;
+}
+
+#place h3 {
+  background-image: url("../foce/assets/images/orange_place_bg.png");
+  animation: fadeUp_purple_background 2s;
+}
+
+.place_background p {
+  position: relative;
+  animation: p-sections-fade-in 1.5s 0.5s forwards;
+}
+
+/* Ajustements pour qu'elles puissent tourner rond sur un axe initial */
+/* Sunflower.png */
+.story h2::after,
+.site-footer::before {
+  width: 154px;
+  height: 154px;
+}
+
+/* random_flower.png */
+#studio h2::before {
+  width: 203px;
+  height: 203px;
+}
+
+/* flower.png */
+#studio h2::after {
+  width: 109px;
+  height: 109px;
+}
+
+/* orchid.png */
+.site-footer::after {
+  width: 173px;
+  height: 173px;
+}
+
+/* Hibiscus.png */
+.story__article::after {
+  width: 188px;
+  height: 188px;
+}
+
+/* AJOUT DE LA ROTATION SUR TOUTES LES FLEURS */
+.story h2::after,
+.story__article::after,
+#studio h2::after,
+#studio h2::before,
+.nomination::before,
+.nomination::after,
+.site-footer::before,
+.site-footer::after,
+.site-footer ul::after {
+  animation: rotate-flower var(--rotate) linear infinite;
+  line-height: 0;
+}
+
+/** Mise en place des keyframes des fleurs **/
+@keyframes rotate-flower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*** SECTION ANIMATION ***/
+.nomination {
+  position: relative;
+  padding: 150px 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 0;
+  justify-content: center;
+  align-items: center;
+  /** Suppression des fleurs appartenant au footer pour les déplacer dans la nouvelle section nomination **/
+}
+.nomination__title {
+  position: relative;
+}
+.nomination__title img {
+  height: 100%;
+}
+.nomination__title h3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 3.2rem;
+  text-align: left;
+}
+.nomination img {
+  height: 100%;
+}
+.nomination::before {
+  content: url("../images/Sunflower.png");
+  position: absolute;
+  left: 4em;
+  top: 0em;
+}
+.nomination::after {
+  content: url("../images/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: -3em;
+}
+
+.site-footer::before,
+.site-footer::after {
+  content: "";
+}
+
+#place h3 {
+  width: 60%;
+}
+
+/*# sourceMappingURL=style.css.map */
