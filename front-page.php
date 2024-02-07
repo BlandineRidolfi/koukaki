@@ -26,7 +26,9 @@ get_header();
             </article>
             
             <!-- Section Characters déplacée dans template-parts\characters-slider.php -->
-
+            <?php get_template_part('template-parts/characters') ;?>
+            
+            <!-- Section lieu -->
             <article id="place" class="story__place">
                 <div>
                     <h3>
@@ -56,7 +58,7 @@ get_header();
             
     </main><!-- #main -->
 
-    <script src="wp-content\themes\foce-child\js\script.js"></script>
+    
 
 <?php
 get_footer();

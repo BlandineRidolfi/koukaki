@@ -147,18 +147,7 @@
     animation-delay: 0.3s;
   }
 
-   /*** SECTION STUDIO KOUKAKI ***/
-
- #story,
- #studio,
- footer {
-    opacity:0; 
-    animation: fade-In-From-Bottom 1.5s 0.5s forwards;
- }
-
- .studio_paragraphe {
-    animation: p-sections-fade-in 1.5s 0.5s forwards;
- }
+  
 
   /*** Section lieu ***/
  
@@ -177,6 +166,19 @@
     position: relative; 
     animation: p-sections-fade-in 1.5s 0.5s forwards;
    }
+
+    /*** Section Studio Koukaki ***/
+
+ #story,
+ #studio,
+ footer {
+    opacity:0; 
+    animation: fade-In-From-Bottom 1.5s 0.5s forwards;
+ }
+
+ .studio_paragraphe {
+    animation: p-sections-fade-in 1.5s 0.5s forwards;
+ }
   
 // ** ROTATION DES FLEURS **//
 
@@ -294,5 +296,49 @@
     width: 60%;
   }
   
+  /** SwiperJs de la section Les personnages **/
+
+.characters-swiper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    
+    h3 {
+      align-self: flex-start;
+      z-index: 2;
+      background-image: url('../images/orange_characters_bg.png');
+    }
+    
+    div {
+      flex: none !important;
+    }
+  }
+
+  //Style général du swiper
+  .swiper {
+    width: 95%;
+    padding-top: 50px;
+    padding-bottom: 200px;
+    
+    &-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+      text-align: center;
+      
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  
+  
+  
+
+
+
   
   

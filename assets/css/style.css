@@ -121,18 +121,6 @@ span.title {
   animation-delay: 0.3s;
 }
 
-/*** SECTION STUDIO KOUKAKI ***/
-#story,
-#studio,
-footer {
-  opacity: 0;
-  animation: fade-In-From-Bottom 1.5s 0.5s forwards;
-}
-
-.studio_paragraphe {
-  animation: p-sections-fade-in 1.5s 0.5s forwards;
-}
-
 /*** Section lieu ***/
 .story__place {
   background-image: url("../images/place_bg.png");
@@ -147,6 +135,18 @@ footer {
 
 .place_background p {
   position: relative;
+  animation: p-sections-fade-in 1.5s 0.5s forwards;
+}
+
+/*** Section Studio Koukaki ***/
+#story,
+#studio,
+footer {
+  opacity: 0;
+  animation: fade-In-From-Bottom 1.5s 0.5s forwards;
+}
+
+.studio_paragraphe {
   animation: p-sections-fade-in 1.5s 0.5s forwards;
 }
 
@@ -252,6 +252,39 @@ footer {
 
 #place h3 {
   width: 60%;
+}
+
+/** SwiperJs de la section Les personnages **/
+.characters-swiper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+.characters-swiper h3 {
+  align-self: flex-start;
+  z-index: 2;
+  background-image: url("../images/orange_characters_bg.png");
+}
+.characters-swiper div {
+  flex: none !important;
+}
+
+.swiper {
+  width: 95%;
+  padding-top: 50px;
+  padding-bottom: 200px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
