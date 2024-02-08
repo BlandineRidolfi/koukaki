@@ -8,12 +8,6 @@ function theme_enqueue_styles_and_scripts() {
     // Chargement du fichier JS de swiper avec le CDN
     wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array('jquery'), false, true);
 
-    // Chargement du fichier CSS de AOS avec le CDN
-    wp_enqueue_style('aos-css', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', array(), '2.3.4');
-
-    // Chargement du fichier JS de AOS avec le CDN
-    wp_enqueue_script('aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', array('jquery'), '2.3.4', true);
-
     // Chargement du style thème parent
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 

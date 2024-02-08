@@ -67,3 +67,6 @@ window.addEventListener("scroll", () => {
     root.style.setProperty('--speed', '1s');
     adjustCloudsPosition();
 });
+
+
+
