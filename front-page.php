@@ -31,10 +31,16 @@ get_header();
             <!-- Section lieu -->
             <article id="place" class="story__place">
                 <div>
-                    <h3>
-                        <span class="title">Le</span>
-                        <span class="title">Lieu</span>
-                    </h3>
+                <h3>
+                    <span class="title">Le</span>
+                    <span class="title">Lieu</span>
+                </h3>
+                    <!-- Implémentation des nuages -->
+                    
+                        <img class="little__cloud" src="<?php echo get_stylesheet_directory_uri().'/assets/images/little_cloud.png'; ?>" alt="petit nuage" />
+                        <img class="big__cloud" src="<?php echo get_stylesheet_directory_uri().'/assets/images/big_cloud.png'; ?>" alt="gros nuage" />  
+                   
+                    
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
 

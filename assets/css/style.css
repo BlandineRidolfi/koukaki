@@ -1,6 +1,7 @@
 @charset "UTF-8";
 :root {
   --rotate: 14s;
+  --speed: 15s;
 }
 
 .main-navigation {
@@ -121,23 +122,6 @@ span.title {
   animation-delay: 0.3s;
 }
 
-/*** Section lieu ***/
-.story__place {
-  background-image: url("../images/place_bg.png");
-  background-repeat: no-repeat;
-  animation: fadeUp_purple_background 2s;
-}
-
-#place h3 {
-  background-image: url("../foce/assets/images/orange_place_bg.png");
-  animation: fadeUp_purple_background 2s;
-}
-
-.place_background p {
-  position: relative;
-  animation: p-sections-fade-in 1.5s 0.5s forwards;
-}
-
 /*** Section Studio Koukaki ***/
 #story,
 #studio,
@@ -150,7 +134,6 @@ footer {
   animation: p-sections-fade-in 1.5s 0.5s forwards;
 }
 
-/* Ajustements pour qu'elles puissent tourner rond sur un axe initial */
 /* Sunflower.png */
 .story h2::after,
 .site-footer::before {
@@ -285,6 +268,36 @@ footer {
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+
+/*** LE LIEU ***/
+.story #place {
+  background-image: url("../images/Studio_Koukaki-image_place.png");
+  animation: fadeUp_purple_background 2s;
+}
+.story #place h3 {
+  background-image: url("../images/orange_place_bg.png");
+}
+.story #place p {
+  position: relative;
+  animation: p-sections-fade-in 1.5s 0.5s forwards;
+}
+
+/*** NUAGES ***/
+#place img {
+  position: absolute;
+  -moz-filter: blur(15px);
+  filter: blur(15px);
+  z-index: 2;
+  transform: translateX(var(--cloudsPositionX));
+}
+#place img.big__cloud {
+  top: 69%;
+  left: calc(56% + 215px);
+}
+#place img.little__cloud {
+  top: 79%;
+  right: calc(14% + 320px);
 }
 
 /*# sourceMappingURL=style.css.map */

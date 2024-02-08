@@ -1,18 +1,29 @@
 <?php
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
-function theme_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles_and_scripts' );
+
+function theme_enqueue_styles_and_scripts() {
+    // Chargement du fichier CSS swiper avec le CDN
     wp_enqueue_style('swiper-style', "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" , array());
-    // Chargement du style personnalisé pour le thème
+
+    // Chargement du fichier JS de swiper avec le CDN
+    wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array('jquery'), false, true);
+
+    // Chargement du fichier CSS de AOS avec le CDN
+    wp_enqueue_style('aos-css', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', array(), '2.3.4');
+
+    // Chargement du fichier JS de AOS avec le CDN
+    wp_enqueue_script('aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', array('jquery'), '2.3.4', true);
+
+    // Chargement du style thème parent
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+
+    // Chargement du style personnalisé du thème enfant
     wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), time());
     
-    // Chargement du script du thème enfant () . '/js/script.js',
-    wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array('jquery'), false, true);
+    // Chargement du script du thème enfant avec jQuery    
     wp_enqueue_script('script', get_theme_file_uri() . '/js/script.js', array('jquery', 'swiper'),time(), true);
     
 }
-
-
 
 // Get customizer options form parent theme
 if ( get_stylesheet() !== get_template() ) {
