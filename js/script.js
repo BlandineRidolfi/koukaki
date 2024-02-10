@@ -69,4 +69,49 @@ window.addEventListener("scroll", () => {
 });
 
 
+/* Sélection des éléments du DOM */
+const buttonMenu = document.querySelector(".buttonMenu");
+const burger = document.querySelector(".activeMenu");
+const menuLinks = document.querySelectorAll(".activeMenu ul li a");
+const animTitles = document.querySelectorAll(".animeLink, .animateTitle");
+
+/* Fonction pour basculer l'état du menu et du bouton */
+const toggleMenu = () => {
+  if (!burger.classList.contains("active_nav")) {
+      burger.classList.add("active_nav");
+      buttonMenu.classList.add("active");
+  } else {
+      burger.classList.remove("active_nav");
+      burger.classList.add("inactive_nav"); // Ajout de la classe "inactive_nav" pour l'animation de fermeture
+      buttonMenu.classList.remove("active");
+      setTimeout(() => {
+          burger.classList.remove("inactive_nav"); // Supprime la classe "inactive_nav" après l'animation de fermeture
+      }, 1000); // Durée de l'animation de fermeture en millisecondes
+  }
+};
+
+/* Gestion de l'ouverture du menu au clic sur le bouton */
+buttonMenu.addEventListener("click", toggleMenu);
+
+/* Gestion de la fermeture du menu au clic sur un lien */
+menuLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+      burger.classList.remove("active_nav");
+      burger.classList.add("inactive_nav"); // Ajout de la classe "inactive_nav" pour l'animation de fermeture
+      buttonMenu.classList.remove("active");
+      setTimeout(() => {
+          burger.classList.remove("inactive_nav"); // Supprime la classe "inactive_nav" après l'animation de fermeture
+      }, 1000); // Durée de l'animation de fermeture en millisecondes
+  });
+});
+
+/* Annule le style "overflow: hidden;" lorsque "animeLink" ou "animateTitle" est cliqué */
+animTitles.forEach((title) => {
+  title.addEventListener("click", () => {
+      // Supprime les styles overflow et paddingRight
+      document.body.style.overflowY = "";
+      document.body.style.paddingRight = "";
+  });
+});
+
 

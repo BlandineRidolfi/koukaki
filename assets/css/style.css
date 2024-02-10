@@ -4,6 +4,10 @@
   --speed: 15s;
 }
 
+main {
+  padding-top: 80px !important;
+}
+
 .main-navigation {
   width: 100%;
   justify-content: space-between;
@@ -13,6 +17,7 @@
 .banner {
   position: relative;
   animation: moveDown 2s 300ms both;
+  margin-bottom: 60px;
 }
 .banner__container--video {
   position: absolute;
@@ -216,7 +221,7 @@ footer {
     transform: rotate(360deg);
   }
 }
-/*** SECTION ANIMATION ***/
+/*** SECTION NOMINATION ***/
 .nomination {
   position: relative;
   padding: 150px 0 50px;
@@ -259,6 +264,13 @@ footer {
 .site-footer::before,
 .site-footer::after {
   content: "";
+}
+
+.site-footer ul::after {
+  position: absolute;
+  left: calc(50% - 323px);
+  bottom: -31.5em;
+  z-index: -1;
 }
 
 #place h3 {
@@ -327,6 +339,231 @@ footer {
 #place img.little__cloud {
   top: 79%;
   right: calc(14% + 320px);
+}
+
+.site-header {
+  position: fixed;
+  min-width: 1440px;
+  z-index: 9999;
+  top: inherit;
+}
+
+body.active_nav {
+  overflow-y: hidden; /* Empêche le défilement vertical du corps lorsque le menu est ouvert */
+}
+
+.site-title {
+  margin-left: 100px;
+  padding-left: 37px;
+}
+
+.activeMenu {
+  background-color: #fff5e9;
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out; /* Transition pour une animation fluide */
+}
+.activeMenu.active_nav {
+  display: block;
+  width: 100%;
+  opacity: 1;
+  height: calc(103vh - 100px);
+  top: 100px;
+  animation: menuFadeIn 1s ease-in-out;
+}
+@keyframes menuFadeIn {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1; /* Opacité à 1 lorsque le menu est complètement apparu */
+    height: calc(100vh - 100px);
+  }
+}
+.activeMenu.inactive_nav {
+  display: block;
+  opacity: 0;
+  height: 0;
+  animation: menuFadeDown 1s ease-in-out;
+}
+@keyframes menuFadeDown {
+  0% {
+    opacity: 1;
+    height: calc(100vh - 100px);
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.buttonMenu {
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+  float: right;
+  margin-top: 30px;
+  margin-right: 120px;
+}
+.buttonMenu span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: backgrond-color 0.5 ease-in-out;
+}
+.buttonMenu span::before, .buttonMenu span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  font-weight: bold;
+  background-color: black;
+  transition: transform 0.5s ease-in-out;
+}
+.buttonMenu span::after {
+  transform: translateY(10px);
+}
+.buttonMenu span::before {
+  transform: translateY(-10px);
+}
+.buttonMenu.active span {
+  background-color: transparent;
+}
+.buttonMenu.active span::before {
+  transform: translateY(0px) rotateZ(45deg);
+}
+.buttonMenu.active span::after {
+  transform: translateY(0px) rotateZ(-45deg);
+}
+
+.menu-items {
+  display: none;
+  background-color: #fff5e9;
+}
+.menu-items__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 28px;
+}
+
+.listMenu {
+  margin: 0;
+}
+
+.listMenu ul {
+  text-align: center;
+  height: 57%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.listMenu li {
+  text-align: center;
+  list-style: none;
+  margin: 0 !important;
+}
+.listMenu li a {
+  text-decoration: none;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 112.4px;
+  margin: 0;
+}
+.listMenu li a:hover {
+  text-shadow: 0px 0px 14px rgba(255, 92, 0, 0.7);
+}
+.listMenu img {
+  margin: auto;
+  display: flex;
+}
+
+.paragrapheMenu {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 115px;
+}
+
+#blueCatMenu,
+#blackCatMenu,
+#orangeCatMenu,
+#sunflowerMenu,
+#orchidMenu,
+#hibiscusMenu,
+#randomMenu,
+#flowerMenu {
+  position: absolute;
+}
+
+.logoMenu {
+  width: 200px;
+}
+
+#blueCatMenu {
+  top: 235px;
+  left: 290px;
+  width: 109.2px;
+  height: 99px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#blackCatMenu {
+  top: 480px;
+  right: 210px;
+  width: 154.8px;
+  height: 147.5px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#orangeCatMenu {
+  bottom: 190px;
+  left: 80px;
+  width: 106px;
+  height: 95.7px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#sunflowerMenu {
+  top: 142px;
+  right: 195px;
+  width: 216px;
+  height: 216px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#orchidMenu {
+  top: 117px;
+  left: -54px;
+  width: 172.5px;
+  height: 168.2px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#hibiscusMenu {
+  bottom: -120px;
+  right: -240px;
+  width: 30%;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#randomMenu {
+  top: 400px;
+  right: -37px;
+  width: 5%;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#flowerMenu {
+  bottom: 452px;
+  left: 230px;
+  width: 70px;
+  height: 70px;
+  animation: rotate-flower var(--rotate) linear infinite;
 }
 
 /*# sourceMappingURL=style.css.map */
