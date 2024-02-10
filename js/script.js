@@ -1,23 +1,22 @@
-// Crée un observateur pour gérer l'animation des titres
-
+// Créer un observateur pour gérer l'animation des titres
 const sectionObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
       if (entry.isIntersecting) {
-          entry.target.classList.add('title-animation')
-          observer.unobserve(entry.target);
-
+          entry.target.classList.add('title-animation');
+      } else {
+          entry.target.classList.remove('title-animation');
       }
   });
-}, { rootMargin: '0px', threshold: 0.25 });
+}, { rootMargin: '0px', threshold: 0 });
 
-
-// Sélection des sections à animer
+// Sélectionner les sections à animer
 const sections = document.querySelectorAll('span.title');
 
-// Ajout de l'observateur d'intersection à chaque section
+// Ajouter l'observateur d'intersection à chaque section
 sections.forEach((section) => {
   sectionObserver.observe(section);
 });
+
 
 // Initialisation du Swiper pour les personnages 
 
@@ -69,49 +68,43 @@ window.addEventListener("scroll", () => {
 });
 
 
-/* Sélection des éléments du DOM */
+// Mise en place du menu burger
+
 const buttonMenu = document.querySelector(".buttonMenu");
 const burger = document.querySelector(".activeMenu");
 const menuLinks = document.querySelectorAll(".activeMenu ul li a");
 const animTitles = document.querySelectorAll(".animeLink, .animateTitle");
 
-/* Fonction pour basculer l'état du menu et du bouton */
 const toggleMenu = () => {
-  if (!burger.classList.contains("active_nav")) {
-      burger.classList.add("active_nav");
-      buttonMenu.classList.add("active");
-  } else {
-      burger.classList.remove("active_nav");
-      burger.classList.add("inactive_nav"); // Ajout de la classe "inactive_nav" pour l'animation de fermeture
-      buttonMenu.classList.remove("active");
-      setTimeout(() => {
-          burger.classList.remove("inactive_nav"); // Supprime la classe "inactive_nav" après l'animation de fermeture
-      }, 1000); // Durée de l'animation de fermeture en millisecondes
-  }
+    if (!burger.classList.contains("active_nav")) {
+        burger.classList.add("active_nav");
+        buttonMenu.classList.add("active");
+    } else {
+        closeMenu();
+    }
 };
 
-/* Gestion de l'ouverture du menu au clic sur le bouton */
+const closeMenu = () => {
+    burger.classList.add("inactive_nav"); // Ajout de la classe d'animation de fermeture
+    buttonMenu.classList.remove("active");
+    setTimeout(() => {
+        burger.classList.remove("active_nav"); // Supprime la classe active_nav après l'animation de fermeture
+        burger.classList.remove("inactive_nav"); // Supprime la classe d'animation de fermeture
+    }, 1000);
+};
+
 buttonMenu.addEventListener("click", toggleMenu);
 
-/* Gestion de la fermeture du menu au clic sur un lien */
 menuLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-      burger.classList.remove("active_nav");
-      burger.classList.add("inactive_nav"); // Ajout de la classe "inactive_nav" pour l'animation de fermeture
-      buttonMenu.classList.remove("active");
-      setTimeout(() => {
-          burger.classList.remove("inactive_nav"); // Supprime la classe "inactive_nav" après l'animation de fermeture
-      }, 1000); // Durée de l'animation de fermeture en millisecondes
-  });
+    link.addEventListener("click", closeMenu);
 });
 
-/* Annule le style "overflow: hidden;" lorsque "animeLink" ou "animateTitle" est cliqué */
 animTitles.forEach((title) => {
-  title.addEventListener("click", () => {
-      // Supprime les styles overflow et paddingRight
-      document.body.style.overflowY = "";
-      document.body.style.paddingRight = "";
-  });
+    title.addEventListener("click", () => {
+        document.body.style.overflowY = "";
+        document.body.style.paddingRight = "";
+    });
 });
+
 
 

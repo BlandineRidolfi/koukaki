@@ -141,9 +141,11 @@ main {
   
   // SECTION HISTOIRE //
   .story {
+    
     animation: fadeInBottom 1s ease-in-out;
    
   }
+
   
   
   // TITRE SECTION STORY - Animation du background
@@ -198,6 +200,10 @@ main {
  footer {
     opacity: 0; 
     animation: fadeInBottom 1.5s 0.5s forwards;
+ }
+
+ #studio h2 {
+    overflow: visible;
  }
 
  .studio__text {
@@ -372,6 +378,7 @@ main {
     background-image: url('../images/Studio_Koukaki-image_place.png');
     background-repeat: no-repeat;
     animation: fadeUpBackgroundTitle 2s;
+   
  // Chargement du background du titre 
     h3 {
       background-image: url('../images/orange_place_bg.png');
@@ -532,6 +539,7 @@ body.active_nav {
           display: flex;
           flex-direction: column;
           align-items: center;
+          padding-top: 40px;
           row-gap: 28px;
           
         }
@@ -578,7 +586,7 @@ body.active_nav {
       .paragrapheMenu {
         text-align: center;
         font-size: 16px;
-        margin-top: 115px;
+        margin-top: 150px;
       }
       
 //Positionnement des images du menu FullScreen + rotation fleurs + flottement chats
@@ -599,7 +607,7 @@ body.active_nav {
 }
 
 #blueCatMenu {
-  top: 235px;
+  top: 275px;
   left: 290px;
   width: 109.2px;
   height: 99px;
@@ -607,7 +615,7 @@ body.active_nav {
 }
 
 #blackCatMenu {
-  top: 480px;
+  top: 520px;
   right: 210px;
   width: 154.8px;
   height: 147.5px;
@@ -615,7 +623,7 @@ body.active_nav {
 }
 
 #orangeCatMenu {
-  bottom: 190px;
+  bottom: 150px;
   left: 80px;
   width: 106px;
   height: 95.7px;
@@ -623,7 +631,7 @@ body.active_nav {
 }
 
 #sunflowerMenu {
-  top: 142px;
+  top: 182px;
   right: 195px;
   width: 216px;
   height: 216px;
@@ -631,7 +639,7 @@ body.active_nav {
 }
 
 #orchidMenu {
-  top: 117px;
+  top: 157px;
   left: -54px;
   width: 172.5px;
   height: 168.2px;
@@ -639,21 +647,21 @@ body.active_nav {
 }
 
 #hibiscusMenu {
-  bottom: -120px;
+  bottom: -202px;
   right: -240px;
   width: 30%;
   animation: rotate-flower var(--rotate) linear infinite;
 }
 
 #randomMenu {
-  top: 400px;
+  top: 440px;
   right: -37px;
   width: 5%;
   animation: rotate-flower var(--rotate) linear infinite;
 }
 
 #flowerMenu {
-  bottom: 452px;
+  bottom: 443px;
   left: 230px;
   width: 70px;
   height: 70px;
