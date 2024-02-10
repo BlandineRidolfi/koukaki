@@ -1,0 +1,77 @@
+
+                                ///////////////////////////
+                               ///  SECTION NOMINATION ///
+                              ///   STUDIO KOUKAKI    ///
+                             ///        SCSS         ///
+                            ///////////////////////////
+
+
+
+#studio h2 {
+    overflow: visible;
+ }
+
+ .studio__text {
+    animation: fadeInText 1.5s 0.5s forwards;
+ }
+
+ .nomination {  
+   position: relative;
+   padding: 150px 0 50px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 40px 0;
+   justify-content: center;
+   align-items: center;
+ 
+   &__title {  
+     position: relative;
+   }
+ 
+   &__title img {
+     height: 100%;
+   }
+ 
+   &__title h3 {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     line-height: 3.2rem;
+     text-align: left;
+   }
+ 
+   img {
+     height: 100%;
+   }
+ 
+   /** Suppression des fleurs appartenant au footer pour les déplacer dans la nouvelle section nomination **/
+   &::before {
+     content: url("../images/Sunflower.png");
+     position: absolute;
+     left: 4em;
+     top: 0em;
+   }
+ 
+   &::after {
+     content: url("../images/orchid.png");
+     position: absolute;
+     right: -4em;
+     top: -3em;
+   }
+ }
+ 
+ .site-footer::before,
+ .site-footer::after {
+   content: '';
+ }
+
+ .site-footer ul::after {
+   position: absolute;
+   left: calc(50% - 323px);
+   bottom: -31.5em;
+   z-index: -1;
+ }
+ 
+ #place h3 {
+   width: 60%;
+ }

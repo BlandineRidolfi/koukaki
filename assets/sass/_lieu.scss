@@ -1,0 +1,44 @@
+                               //////////////////////////
+                              ///    SECTION LIEU    ///
+                             ///        SCSS        ///
+                            //////////////////////////
+
+                            // Changement de l'image de fond
+ .story #place {
+    background-image: url('../images/Studio_Koukaki-image_place.png');
+    background-repeat: no-repeat;
+    animation: fadeBackgroundTitle 2s;
+   
+ // Chargement du background du titre 
+    h3 {
+      background-image: url('../images/orange_place_bg.png');
+      
+    }
+  
+    p {
+        position: relative;
+        animation: fadeInText 1.5s 0.5s forwards;
+    }
+}
+  
+  /*** NUAGES ***/
+  #place {
+    
+      img {
+        position: absolute;
+        -moz-filter: blur(15px);
+        filter: blur(15px);
+        z-index: 2;
+        transform: translateX(var(--cloudsPositionX));
+  
+        &.big__cloud {
+          top: 69%;
+          left: calc(56% + 215px);
+        }
+  
+        &.little__cloud {
+          top: 79%;
+          right: calc(14% + 320px);
+        }      
+    }
+  }

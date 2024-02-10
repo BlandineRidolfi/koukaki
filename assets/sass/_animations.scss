@@ -1,0 +1,289 @@
+                                ///////////////////////////
+                               ///    ANIMATIONS       ///
+                              ///        SCSS         ///
+                             ///////////////////////////
+ 
+                        // ANIMATIONS DE LA BANNER ET DU LOGO //
+
+// KEYFRAMES Mouvement de bas en haut du logo 
+@keyframes moveUp {
+    0% {
+      transform: translateY(600px) ;
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+// KEYFRAMES Banner + image
+@keyframes moveDown {
+    0% {
+      transform: translateY(-300px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+// KEYFRAMES Flottement du logo 
+  @keyframes floating-animation {
+    10%{
+      transform:translate3d(0, 5px, 0);
+    }
+    30%{
+      transform: translate3d(0, -10px, 0);
+    }
+    43%{
+      transform: translate3d(8px, 0,0);
+    }
+    50%{
+      transform: translate3d(-2px, -6px, O);
+    }
+    60% {
+      transform: translate3d(4px, -2px, 0);
+    }
+    72%{
+      transform: translate3d(-8px, 6px, 0);
+    }
+    85%{
+      transform: translate3d(-2px, 3px, 0);
+    }
+  }
+
+
+                            // MISE EN PLACE DES FADE IN  //
+
+  // KEYFRAMES pour les Fade in
+  @keyframes fadeInBottom { /* Animation vers le bas */
+    0% {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeinTop { /* Animation vers le haut */
+    from {
+      opacity: 0;
+      transform: translateY(-500px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  // KEYFRAMES pour les animations de titres
+  @keyframes title-animation {
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  // KEYFRAMES pour les animations des sections
+  @keyframes fadeInText {
+    0% {
+      opacity : 0;
+      transform : translateY(-150px)
+    }
+    50%{
+      opacity: 1; 
+    }
+    100%{
+      transform: translate(0px); 
+    }
+   }
+
+   // KEYFRAMES pour les animations des background des titres
+
+   @keyframes fadeBackgroundTitle {
+    from {
+        background-position : 0 300px;
+        opacity: 0;
+    }
+    to {
+        background-position: 0 0;
+        opacity: 1;
+    }
+  }
+
+  // Style pour les titres 
+
+    // Titres H2 fonds violets
+  .story {
+    h2 {
+      background-image: url('../../../foce/assets/images/purple_title_bg.png');
+      animation: fadeBackgroundTitle 1s ease-in-out;
+    }
+  }
+
+   // Mise en place de l'animation des titres
+  span.title {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 1s, opacity 0.5s;
+  }
+  
+  .title-animation:nth-child(1) {
+    animation: fadeInBottom 0.6s ease-in-out forwards;
+  }
+  
+  .title-animation:nth-child(2) {
+    animation: fadeInBottom 0.6s ease-in-out forwards;
+    animation-delay: 0.3s;
+  }
+
+  // Animation fade in de toutes les sections 
+
+  #story,
+  #studio,
+  footer {
+     opacity: 0; 
+     animation: fadeInBottom 1.5s 0.5s forwards;
+  }
+ 
+
+                                // ROTATION DES FLEURS //
+
+//** Taille des fleurs                                
+ /* Sunflower */
+ .story h2::after,
+ .site-footer::before {
+    width: 154px;
+	height: 154px;
+ }
+
+ /* random_flower. */
+ #studio h2::before {
+    width: 203px;
+    height: 203px;
+ }
+
+ /* flower */
+ #studio h2::after {
+    width: 109px;
+	height: 109px;
+ }
+
+ /* orchid. */
+ .site-footer::after {
+    width: 173px;
+    height: 173px;
+ }
+
+ /* Hibiscus */
+ .story__article::after {
+	width: 188px;
+	height: 188px;
+ }
+
+/* Ajout de l'animation rotation sur les fleurs avec la variable --rotate définie dans root */
+ .story h2::after,
+ .story__article::after,
+ #studio h2::after,
+ #studio h2::before,
+ .nomination::before,
+ .nomination::after,
+ .site-footer::before,
+ .site-footer::after,
+ .site-footer ul::after {
+   animation: rotate-flower var(--rotate) linear infinite;
+   line-height: 0;
+ }
+
+// KEYFRAMES pour la rotation des fleurs
+
+@keyframes rotate-flower {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+                                        // ROTATION DES IMAGES DU MENU BURGER //
+
+// Positionnement des images (j'utilise les mêmes keyframes que pour le flottement du logo et la rotation des fleurs)
+
+#blueCatMenu,
+#blackCatMenu,
+#orangeCatMenu,
+#sunflowerMenu,
+#orchidMenu,
+#hibiscusMenu,
+#randomMenu,
+#flowerMenu {
+  position: absolute;
+}
+
+.logoMenu {
+  width: 200px;
+}
+
+#blueCatMenu {
+  top: 275px;
+  left: 290px;
+  width: 109.2px;
+  height: 99px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#blackCatMenu {
+  top: 520px;
+  right: 210px;
+  width: 154.8px;
+  height: 147.5px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#orangeCatMenu {
+  bottom: 150px;
+  left: 80px;
+  width: 106px;
+  height: 95.7px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#sunflowerMenu {
+  top: 182px;
+  right: 195px;
+  width: 216px;
+  height: 216px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#orchidMenu {
+  top: 157px;
+  left: -54px;
+  width: 172.5px;
+  height: 168.2px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#hibiscusMenu {
+  bottom: -202px;
+  right: -240px;
+  width: 30%;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#randomMenu {
+  top: 440px;
+  right: -37px;
+  width: 5%;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#flowerMenu {
+  bottom: 443px;
+  left: 230px;
+  width: 70px;
+  height: 70px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}

@@ -1,40 +1,4 @@
 @charset "UTF-8";
-:root {
-  --rotate: 14s;
-  --speed: 15s;
-}
-
-main {
-  padding-top: 80px !important;
-}
-
-.main-navigation {
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.banner {
-  position: relative;
-  animation: moveDown 2s 300ms both;
-  margin-bottom: 60px;
-}
-.banner__container--video {
-  position: absolute;
-  object-fit: cover;
-}
-@media (max-width: 768px) {
-  .banner__container--video {
-    display: none;
-  }
-}
-.banner__logo {
-  position: sticky;
-  top: 80px;
-  z-index: 10;
-  animation: moveUp 2s 300ms both, floating-animation 6s 2s infinite ease-in-out;
-}
-
 @keyframes moveUp {
   0% {
     transform: translateY(600px);
@@ -42,6 +6,16 @@ main {
   }
   100% {
     transform: translateY(0);
+  }
+}
+@keyframes moveDown {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    visibility: visible;
   }
 }
 @keyframes floating-animation {
@@ -67,17 +41,7 @@ main {
     transform: translate3d(-2px, 3px, 0);
   }
 }
-@keyframes moveDown {
-  0% {
-    transform: translateY(-300px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    visibility: visible;
-  }
-}
-@keyframes fadeInBottom { /* ANIMATION ENTRANTE VERS LE BAS */
+@keyframes fadeInBottom { /* Animation vers le bas */
   0% {
     opacity: 0;
     transform: translateY(200px);
@@ -87,7 +51,7 @@ main {
     transform: translateY(0);
   }
 }
-@keyframes fadeinTop { /* ANIMATION ENTRANTE VERS LE HAUT */
+@keyframes fadeinTop { /* Animation vers le haut */
   from {
     opacity: 0;
     transform: translateY(-500px);
@@ -102,7 +66,6 @@ main {
     transform: translateY(0%);
   }
 }
-/****KEYFRAMES PARAGRAPHES ***/
 @keyframes fadeInText {
   0% {
     opacity: 0;
@@ -115,21 +78,7 @@ main {
     transform: translate(0px);
   }
 }
-.story {
-  animation: fadeInBottom 1s ease-in-out;
-}
-
-.story h2 {
-  background-image: url("../../../foce/assets/images/purple_title_bg.png");
-  animation: fadeUpBackgroundTitle 1s ease-in-out;
-}
-
-.story__article p {
-  position: relative;
-  animation: fadeInText 1.5s 0.5s forwards;
-}
-
-@keyframes fadeUpBackgroundTitle {
+@keyframes fadeBackgroundTitle {
   from {
     background-position: 0 300px;
     opacity: 0;
@@ -139,6 +88,11 @@ main {
     opacity: 1;
   }
 }
+.story h2 {
+  background-image: url("../../../foce/assets/images/purple_title_bg.png");
+  animation: fadeBackgroundTitle 1s ease-in-out;
+}
+
 span.title {
   display: inline-block;
   opacity: 0;
@@ -155,7 +109,6 @@ span.title {
   animation-delay: 0.3s;
 }
 
-/*** Section Studio Koukaki ***/
 #story,
 #studio,
 footer {
@@ -163,46 +116,38 @@ footer {
   animation: fadeInBottom 1.5s 0.5s forwards;
 }
 
-#studio h2 {
-  overflow: visible;
-}
-
-.studio__text {
-  animation: fadeInText 1.5s 0.5s forwards;
-}
-
-/* Sunflower.png */
+/* Sunflower */
 .story h2::after,
 .site-footer::before {
   width: 154px;
   height: 154px;
 }
 
-/* random_flower.png */
+/* random_flower. */
 #studio h2::before {
   width: 203px;
   height: 203px;
 }
 
-/* flower.png */
+/* flower */
 #studio h2::after {
   width: 109px;
   height: 109px;
 }
 
-/* orchid.png */
+/* orchid. */
 .site-footer::after {
   width: 173px;
   height: 173px;
 }
 
-/* Hibiscus.png */
+/* Hibiscus */
 .story__article::after {
   width: 188px;
   height: 188px;
 }
 
-/* AJOUT DE LA ROTATION SUR TOUTES LES FLEURS */
+/* Ajout de l'animation rotation sur les fleurs avec la variable --rotate définie dans root */
 .story h2::after,
 .story__article::after,
 #studio h2::after,
@@ -216,7 +161,6 @@ footer {
   line-height: 0;
 }
 
-/** Mise en place des keyframes des fleurs **/
 @keyframes rotate-flower {
   from {
     transform: rotate(0deg);
@@ -225,124 +169,102 @@ footer {
     transform: rotate(360deg);
   }
 }
-/*** SECTION NOMINATION ***/
-.nomination {
+#blueCatMenu,
+#blackCatMenu,
+#orangeCatMenu,
+#sunflowerMenu,
+#orchidMenu,
+#hibiscusMenu,
+#randomMenu,
+#flowerMenu {
+  position: absolute;
+}
+
+.logoMenu {
+  width: 200px;
+}
+
+#blueCatMenu {
+  top: 275px;
+  left: 290px;
+  width: 109.2px;
+  height: 99px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#blackCatMenu {
+  top: 520px;
+  right: 210px;
+  width: 154.8px;
+  height: 147.5px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#orangeCatMenu {
+  bottom: 150px;
+  left: 80px;
+  width: 106px;
+  height: 95.7px;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#sunflowerMenu {
+  top: 182px;
+  right: 195px;
+  width: 216px;
+  height: 216px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#orchidMenu {
+  top: 157px;
+  left: -54px;
+  width: 172.5px;
+  height: 168.2px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#hibiscusMenu {
+  bottom: -202px;
+  right: -240px;
+  width: 30%;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#randomMenu {
+  top: 440px;
+  right: -37px;
+  width: 5%;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+#flowerMenu {
+  bottom: 443px;
+  left: 230px;
+  width: 70px;
+  height: 70px;
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+.banner {
   position: relative;
-  padding: 150px 0 50px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px 0;
-  justify-content: center;
-  align-items: center;
-  /** Suppression des fleurs appartenant au footer pour les déplacer dans la nouvelle section nomination **/
+  animation: moveDown 2s 300ms both;
+  margin-bottom: 60px;
 }
-.nomination__title {
-  position: relative;
-}
-.nomination__title img {
-  height: 100%;
-}
-.nomination__title h3 {
+.banner__container--video {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  line-height: 3.2rem;
-  text-align: left;
+  object-fit: cover;
 }
-.nomination img {
-  height: 100%;
+@media (max-width: 768px) {
+  .banner__container--video {
+    display: none;
+  }
 }
-.nomination::before {
-  content: url("../images/Sunflower.png");
-  position: absolute;
-  left: 4em;
-  top: 0em;
-}
-.nomination::after {
-  content: url("../images/orchid.png");
-  position: absolute;
-  right: -4em;
-  top: -3em;
-}
-
-.site-footer::before,
-.site-footer::after {
-  content: "";
-}
-
-.site-footer ul::after {
-  position: absolute;
-  left: calc(50% - 323px);
-  bottom: -31.5em;
-  z-index: -1;
-}
-
-#place h3 {
-  width: 60%;
-}
-
-/** SwiperJs de la section Les personnages **/
-.characters-swiper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  text-align: center;
-}
-.characters-swiper h3 {
-  align-self: flex-start;
-  z-index: 2;
-  background-image: url("../images/orange_characters_bg.png");
-}
-.characters-swiper div {
-  flex: none !important;
-}
-
-.swiper {
-  width: 95%;
-  padding-top: 50px;
-  padding-bottom: 200px;
-}
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
-  text-align: center;
-}
-.swiper-slide img {
-  display: block;
-  width: 100%;
-}
-
-/*** LE LIEU ***/
-.story #place {
-  background-image: url("../images/Studio_Koukaki-image_place.png");
-  background-repeat: no-repeat;
-  animation: fadeUpBackgroundTitle 2s;
-}
-.story #place h3 {
-  background-image: url("../images/orange_place_bg.png");
-}
-.story #place p {
-  position: relative;
-  animation: fadeInText 1.5s 0.5s forwards;
-}
-
-/*** NUAGES ***/
-#place img {
-  position: absolute;
-  -moz-filter: blur(15px);
-  filter: blur(15px);
-  z-index: 2;
-  transform: translateX(var(--cloudsPositionX));
-}
-#place img.big__cloud {
-  top: 69%;
-  left: calc(56% + 215px);
-}
-#place img.little__cloud {
-  top: 79%;
-  right: calc(14% + 320px);
+.banner__logo {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  animation: moveUp 2s 300ms both, floating-animation 6s 2s infinite ease-in-out;
 }
 
 .site-header {
@@ -494,81 +416,158 @@ body.active_nav {
   margin-top: 150px;
 }
 
-#blueCatMenu,
-#blackCatMenu,
-#orangeCatMenu,
-#sunflowerMenu,
-#orchidMenu,
-#hibiscusMenu,
-#randomMenu,
-#flowerMenu {
+#studio h2 {
+  overflow: visible;
+}
+
+.studio__text {
+  animation: fadeInText 1.5s 0.5s forwards;
+}
+
+.nomination {
+  position: relative;
+  padding: 150px 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 0;
+  justify-content: center;
+  align-items: center;
+  /** Suppression des fleurs appartenant au footer pour les déplacer dans la nouvelle section nomination **/
+}
+.nomination__title {
+  position: relative;
+}
+.nomination__title img {
+  height: 100%;
+}
+.nomination__title h3 {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 3.2rem;
+  text-align: left;
+}
+.nomination img {
+  height: 100%;
+}
+.nomination::before {
+  content: url("../images/Sunflower.png");
+  position: absolute;
+  left: 4em;
+  top: 0em;
+}
+.nomination::after {
+  content: url("../images/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: -3em;
 }
 
-.logoMenu {
-  width: 200px;
+.site-footer::before,
+.site-footer::after {
+  content: "";
 }
 
-#blueCatMenu {
-  top: 275px;
-  left: 290px;
-  width: 109.2px;
-  height: 99px;
-  animation: floating-animation 6s 2s infinite ease-in-out;
+.site-footer ul::after {
+  position: absolute;
+  left: calc(50% - 323px);
+  bottom: -31.5em;
+  z-index: -1;
 }
 
-#blackCatMenu {
-  top: 520px;
-  right: 210px;
-  width: 154.8px;
-  height: 147.5px;
-  animation: floating-animation 6s 2s infinite ease-in-out;
+#place h3 {
+  width: 60%;
 }
 
-#orangeCatMenu {
-  bottom: 150px;
-  left: 80px;
-  width: 106px;
-  height: 95.7px;
-  animation: floating-animation 6s 2s infinite ease-in-out;
+.characters-swiper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+.characters-swiper h3 {
+  align-self: flex-start;
+  z-index: 2;
+  background-image: url("../images/orange_characters_bg.png");
+}
+.characters-swiper div {
+  flex: none !important;
 }
 
-#sunflowerMenu {
-  top: 182px;
-  right: 195px;
-  width: 216px;
-  height: 216px;
-  animation: rotate-flower var(--rotate) linear infinite;
+.swiper {
+  width: 95%;
+  padding-top: 50px;
+  padding-bottom: 200px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
 }
 
-#orchidMenu {
-  top: 157px;
-  left: -54px;
-  width: 172.5px;
-  height: 168.2px;
-  animation: rotate-flower var(--rotate) linear infinite;
+.story #place {
+  background-image: url("../images/Studio_Koukaki-image_place.png");
+  background-repeat: no-repeat;
+  animation: fadeBackgroundTitle 2s;
+}
+.story #place h3 {
+  background-image: url("../images/orange_place_bg.png");
+}
+.story #place p {
+  position: relative;
+  animation: fadeInText 1.5s 0.5s forwards;
 }
 
-#hibiscusMenu {
-  bottom: -202px;
-  right: -240px;
-  width: 30%;
-  animation: rotate-flower var(--rotate) linear infinite;
+/*** NUAGES ***/
+#place img {
+  position: absolute;
+  -moz-filter: blur(15px);
+  filter: blur(15px);
+  z-index: 2;
+  transform: translateX(var(--cloudsPositionX));
+}
+#place img.big__cloud {
+  top: 69%;
+  left: calc(56% + 215px);
+}
+#place img.little__cloud {
+  top: 79%;
+  right: calc(14% + 320px);
 }
 
-#randomMenu {
-  top: 440px;
-  right: -37px;
-  width: 5%;
-  animation: rotate-flower var(--rotate) linear infinite;
+:root {
+  --rotate: 14s;
+  --speed: 15s;
 }
 
-#flowerMenu {
-  bottom: 443px;
-  left: 230px;
-  width: 70px;
-  height: 70px;
-  animation: rotate-flower var(--rotate) linear infinite;
+main {
+  padding-top: 80px !important;
+}
+
+.main-navigation {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.story {
+  animation: fadeInBottom 1s ease-in-out;
+}
+
+.story h2 {
+  background-image: url("../../../foce/assets/images/purple_title_bg.png");
+  animation: fadeBackgroundTitle 1s ease-in-out;
+}
+
+.story__article p {
+  position: relative;
+  animation: fadeInText 1.5s 0.5s forwards;
 }
 
 /*# sourceMappingURL=style.css.map */
