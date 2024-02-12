@@ -1,3 +1,9 @@
+  ////////////////////////////////////////////////
+ // ANIMATION DES TITRES EN FONCTION DU SCROLL //
+////////////////////////////////////////////////
+
+console.log("Démarrage du script");
+
 // Créer un observateur pour gérer l'animation des titres
 const sectionObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
@@ -17,8 +23,9 @@ sections.forEach((section) => {
   sectionObserver.observe(section);
 });
 
-
-// Initialisation du Swiper pour les personnages 
+  /////////////////////////////////////////////////
+ // SWIPPERJS POUR LE CAROUSSEL DES PERSONNAGES //
+/////////////////////////////////////////////////
 
 const swiper = new Swiper(".swiper", {
   effect: 'coverflow',
@@ -40,6 +47,10 @@ const swiper = new Swiper(".swiper", {
   },
   
 });
+  ////////////////////////////
+ // DEPLACEMENT DES NUAGES // 
+////////////////////////////
+
 // Mise en place de la variable pour le mouvement des nuages
 let cloudsPositionX = 0;
 
@@ -67,8 +78,9 @@ window.addEventListener("scroll", () => {
     adjustCloudsPosition();
 });
 
-
-// Mise en place du menu burger
+  /////////////////
+ // MENU BURGER //
+/////////////////
 
 const buttonMenu = document.querySelector(".buttonMenu");
 const burger = document.querySelector(".activeMenu");
@@ -76,6 +88,7 @@ const menuLinks = document.querySelectorAll(".activeMenu ul li a");
 const animTitles = document.querySelectorAll(".animeLink, .animateTitle");
 
 const toggleMenu = () => {
+        console.log("Menu burger ouvert");
     if (!burger.classList.contains("active_nav")) {
         burger.classList.add("active_nav");
         buttonMenu.classList.add("active");
@@ -85,6 +98,7 @@ const toggleMenu = () => {
 };
 
 const closeMenu = () => {
+    console.log("Menu burger fermé");
     burger.classList.add("inactive_nav"); // Ajout de la classe d'animation de fermeture
     buttonMenu.classList.remove("active");
     setTimeout(() => {

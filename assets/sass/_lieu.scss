@@ -3,66 +3,68 @@
                              ///        SCSS        ///
                             //////////////////////////
 
-                            // Changement de l'image de fond
- .story #place {
-    background-image: url('../images/Studio_Koukaki-image_place.png');
-    background-repeat: no-repeat;
-    animation: fadeBackgroundTitle 2s;
-   
- // Chargement du background du titre 
-    h3 {
+                            
+ /* Styles pour .story #place */
+.story #place {
+  background-image: url('../images/Studio_Koukaki-image_place.png');
+  background-repeat: no-repeat;
+  animation: fadeBackgroundTitle 2s;
+
+  /* Styles pour les titres dans .story #place */
+  h3 {
       background-image: url('../images/orange_place_bg.png');
-      
-    }
-  
-    p {
-        position: relative;
-        animation: fadeInText 1.5s 0.5s forwards;
-    }
-}
-  
-  /*** NUAGES ***/
-  #place {
-    
-      img {
-        position: absolute;
-        -moz-filter: blur(15px);
-        filter: blur(15px);
-        z-index: 2;
-        transform: translateX(var(--cloudsPositionX));
-  
-        &.big__cloud {
+  }
+
+  /* Styles pour les paragraphes dans .story #place */
+  p {
+      position: relative;
+      animation: fadeInText 1.5s 0.5s forwards;
+  }
+
+  /* Styles pour les images dans #place */
+  img {
+      position: absolute;
+      -moz-filter: blur(15px);
+      filter: blur(15px);
+      z-index: 2;
+      transform: translateX(var(--cloudsPositionX));
+
+      /* Styles pour les grands nuages dans #place */
+      &.big__cloud {
           top: 69%;
           left: calc(56% + 215px);
-        }
-  
-        &.little__cloud {
+      }
+
+      /* Styles pour les petits nuages dans #place */
+      &.little__cloud {
           top: 79%;
           right: calc(14% + 320px);
-        }      
-    }
+      }
   }
-
-@media screen and (max-width: 938px) {
-  #place {
-    img {
-      display: none;
-    }
-  }  
 }
 
+/* Média query pour masquer les images sur les petits écrans */
+@media screen and (max-width: 938px) {
+  .story #place img {
+      display: none;
+  }
+}
+
+/* Média query pour ajuster la mise en page sur les écrans de taille moyenne */
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .story #place {
-    min-height: 450px;
-    margin-top: 50px;
-  }
+      min-height: 450px;
+      margin-top: 50px;
 
-  .story #place > div p {
-    text-align: center;
-    padding-left: inherit;
-  }
+      /* Styles pour les paragraphes dans .story #place */
+      > div p {
+          text-align: center;
+          padding-left: inherit;
+      }
 
-  .story #place h3 {
-    align-self: center;
+      /* Styles pour les titres dans .story #place */
+      h3 {
+          align-self: center;
+      }
   }
 }

@@ -19,6 +19,10 @@ main {
     padding-top: 80px!important;
 } 
 
+.story__article p {
+    animation: fadeInText 1.5s 0.5s forwards;
+}
+
 // POINTS DE RUPTURE DES STYLES GENERAUX POUR TABLETTE ET MOBILE
 
 @media screen and (max-width: 782px) {

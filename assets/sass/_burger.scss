@@ -122,8 +122,8 @@ body.active_nav {
           left: 50%;
           transform: translateX(-50%);
           margin-top: 0;
-          margin-right: 0; /* Ajustez la marge droite si nécessaire */
-          float: none; /* Annulez la propriété float */
+          margin-right: 0; 
+          float: none; 
       }
   }
 
@@ -144,8 +144,7 @@ body.active_nav {
       @media screen and (max-width: 600px)  {
         .menu-items {
           padding-top: 80px;
-        }
-        
+        }        
       }
 
       .listMenu {
@@ -188,7 +187,6 @@ body.active_nav {
             li a {
                 font-size: 2rem; 
                 line-height: 112.4px;
-                 
             }
         }
     }
@@ -204,9 +202,9 @@ body.active_nav {
           margin-top: 60px;
         }
       }
-  }
+    }
 
-  #blueCatMenu,
+#blueCatMenu,
 #blackCatMenu,
 #orangeCatMenu {
   position: absolute;
