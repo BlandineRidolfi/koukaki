@@ -13,45 +13,40 @@
 
 :root {
     --rotate: 14s;
-    --speed : 15s; 
 }
-
-$background-color: black;
 
 main {
     padding-top: 80px!important;
+} 
+
+// POINTS DE RUPTURE DES STYLES GENERAUX POUR TABLETTE ET MOBILE
+
+@media screen and (max-width: 782px) {
+    #wpadminbar {
+        height: 46px;
+        min-width: 240px;
+        position: fixed;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+    font-size: 1.5rem;
+    }
+
+    .story__article {
+        font-size: 13px;
+    }
+
+    
 }
 
-.main-navigation {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
 
-  .story {
-        animation: fadeInBottom 1s ease-in-out;
-   
-  }
-  
-  // Titres H2 fonds violets
-  
-  .story {
-    h2 {
-      background-image: url('../../../foce/assets/images/purple_title_bg.png');
-      animation: fadeBackgroundTitle 1s ease-in-out;
-    }
-  }
 
-  //story article
-  .story__article {
-    p {
-      position: relative; 
-      animation: fadeInText 1.5s 0.5s forwards;
-    }
-   }
-   
 
-//Positionnement des images du menu FullScreen + rotation fleurs + flottement chats
-
+    
+    
 
 

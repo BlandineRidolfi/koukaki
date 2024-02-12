@@ -16,7 +16,7 @@
             object-fit: cover;
 
             // Désactivation de la vidéo quand l'écran diminue sous 768px pour refaire apparaitre l'image de fond
-            // Sur la version mobile  en fallback pendant le chargement de la vidéo
+            // Sur la version tablette et mobile  en fallback pendant le chargement de la vidéo
             @media (max-width: 768px) {
                 display: none;
             }
@@ -31,3 +31,10 @@
         
     }
 }
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .banner {
+        min-height: 540px;
+        margin-bottom: 40px;
+    }
+  }

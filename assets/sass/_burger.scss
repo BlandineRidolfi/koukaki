@@ -5,11 +5,27 @@
 
 .site-header {
     position: fixed;
-    min-width: 1440px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     z-index: 9999;
     top: inherit;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .site-header {
+    background-color: #FFD5A2;
+    height: 80px;
+  }
+
+  
+
+  .main-navigation a {
+    display: none;
+  }
+}
 
 body.active_nav {
     overflow-y: hidden; /* Empêche le défilement vertical du corps lorsque le menu est ouvert */
@@ -17,106 +33,100 @@ body.active_nav {
 
 .site-title {
     margin-left: 100px;
-    padding-left: 37px;
+    padding-left: 37px;    
 }
+
 
 .activeMenu {
-    background-color: #fff5e9;
-    opacity: 0;
-    height: 0;
-    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out; /* Transition pour une animation fluide */
-    
-    &.active_nav {
-        display: block;
-        width: 100%;
-        opacity: 1;
-        height: calc(103vh - 100px);
-        top: 100px;
-        animation: menuFadeIn 1s ease-in-out;
-    }
+  background-color: #fff5e9;
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out; /* Transition pour une animation fluide */
+  
+  &.active_nav {
+      display: block;
+      width: 100%;
+      opacity: 1;
+      height: calc(103vh - 100px);
+      animation: menuFadeIn 1s ease-in-out;
+      
+      @media screen and (max-width: 768px) {
+          /* Styles spécifiques pour l'affichage mobile */
+          height: 100vh; /* Ajustez la hauteur en conséquence pour l'affichage mobile */
+      }
+  }
 
-    @keyframes menuFadeIn {
-        0% {
-            opacity: 0;
-            height: 0;
-        }
-        100% {
-            opacity: 1; /* Opacité à 1 lorsque le menu est complètement apparu */
-            height: calc(100vh - 100px);
-        }
-    }
-    &.inactive_nav {
-        display: block;
-        opacity: 0;
-        height: 0;
-        animation: menuFadeDown 1s ease-in-out;
-    }
-
-    @keyframes menuFadeDown {
-        0% {
-            opacity: 1;
-            height: calc(100vh - 100px);
-        }
-        100% {
-            opacity: 0;
-            height: 0;
-        }
-    }
+  &.inactive_nav {
+      display: block;
+      opacity: 0;
+      height: 0;
+      animation: menuFadeDown 1s ease-in-out;
+  }
 }
 
-
 .buttonMenu {
-    width: 42px;
-    height: 24px;
-    cursor: pointer;
-    position: relative;
-    float: right;
-    margin-top: 30px;
-    margin-right: 120px;
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+  float: right;
+  margin-top: 30px;
+  margin-right: 2%;
 
-    span {
-        display: block;
+  span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: black;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: fadeInMenu 0.5s ease-in-out;
+      
+      &::before,
+      &::after {
+        content: "";
         position: absolute;
         width: 100%;
         height: 1px;
+        font-weight: bold;
         background-color: black;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: backgrond-color 0.5 ease-in-out;
-        
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          font-weight: bold;
-          background-color: black;
-          transition: transform 0.5s ease-in-out;
-        }
-    
-        &::after {
-          transform: translateY(10px);
-        }
-        &::before {
-          transform: translateY(-10px);
-        }
+        transition: transform 0.5s ease-in-out;
       }
-    
-      &.active {
-        span {
-          background-color: transparent;
-          &::before {
-            transform: translateY(0px) rotateZ(45deg);
-          }
-          &::after {
-            transform: translateY(0px) rotateZ(-45deg);
-          }
+  
+      &::after {
+        transform: translateY(10px);
+      }
+      &::before {
+        transform: translateY(-10px);
+      }
+    }
+  
+    &.active {
+      span {
+        background-color: transparent;
+        &::before {
+          transform: translateY(0px) rotateZ(45deg);
+        }
+        &::after {
+          transform: translateY(0px) rotateZ(-45deg);
         }
       }
     }
+  }
 
-    
+  @media screen and (max-width: 768px) {
+      .buttonMenu {          
+          position: absolute;
+          top: 40%; 
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 0;
+          margin-right: 0; /* Ajustez la marge droite si nécessaire */
+          float: none; /* Annulez la propriété float */
+      }
+  }
+
 
     .menu-items {
         display: none;
@@ -128,8 +138,14 @@ body.active_nav {
           align-items: center;
           padding-top: 40px;
           row-gap: 28px;
-          
         }
+      }
+
+      @media screen and (max-width: 600px)  {
+        .menu-items {
+          padding-top: 80px;
+        }
+        
       }
 
       .listMenu {
@@ -138,40 +154,165 @@ body.active_nav {
 
       .listMenu {
         ul {
-          text-align: center;
-          height: 57%;
-          margin: 0!important;
-          padding: 0!important;
+            text-align: center;
+            height: 57%;
+            margin: 0!important;
+            padding: 0!important;
         }
-      
+        
         li {
-          text-align: center;
-          list-style: none;
-          margin: 0!important;
+            text-align: center;
+            list-style: none;
+            margin: 0!important;
         }
-      
+        
         li a {
-          
-          text-decoration: none;
-          font-size: 4rem;
-          font-weight: 400;
-          line-height: 112.4px;
-          margin: 0;
-          // Ombre du texte
-          &:hover {
-            text-shadow: 0px 0px 14px rgba(255, 92, 0, 0.7);
-
-          }
+            text-decoration: none;
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 112.4px;
+            margin: 0;
+            
+            // Ombre du texte
+            &:hover {
+                text-shadow: 0px 0px 14px rgba(255, 92, 0, 0.7);
+            }
         }
-      
+        
         img {
-          margin: auto;
-          display: flex;
+            margin: auto;
+            display: flex;
+        }
+    
+        @media screen and (max-width: 768px) {
+            li a {
+                font-size: 2rem; 
+                line-height: 112.4px;
+                 
+            }
+        }
+    }
+    
+    .paragrapheMenu {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 60px;
+  
+      @media screen and (max-width: 768px) {
+        .paragrapheMenu {
+          font-size: 12px;
+          margin-top: 60px;
         }
       }
+  }
 
-      .paragrapheMenu {
-        text-align: center;
-        font-size: 16px;
-        margin-top: 150px;
-      }
+  #blueCatMenu,
+#blackCatMenu,
+#orangeCatMenu {
+  position: absolute;
+  animation: floating-animation 6s 2s infinite ease-in-out;
+}
+
+#sunflowerMenu,
+#orchidMenu,
+#hibiscusMenu,
+#randomMenu,
+#flowerMenu {
+    position: absolute;
+    animation: rotate-flower var(--rotate) linear infinite;
+}
+
+.logoMenu {
+  width: 200px;
+}
+
+#blueCatMenu {
+  top: 275px;
+  left: 240px;
+  width: 109.2px;
+  height: 99px;
+}
+
+@media screen and (max-width: 1110px) {
+  #blueCatMenu {
+   left: 170px;
+  }
+}
+
+#blackCatMenu {
+  top: 520px;
+  right: 210px;
+  width: 154.8px;
+  height: 147.5px;
+}
+
+#orangeCatMenu {
+  bottom: 150px;
+  left: 80px;
+  width: 106px;
+  height: 95.7px;
+}
+
+#sunflowerMenu {
+  top: 182px;
+  right: 195px;
+  width: 216px;
+  height: 216px;
+}
+
+@media screen and (max-width: 1110px) {
+  #sunflowerMenu {
+    right: 100px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  #sunflowerMenu {
+    right: 60px;
+  }
+}
+
+#orchidMenu {
+  top: 157px;
+  left: -54px;
+  width: 172.5px;
+  height: 168.2px;
+}
+
+#hibiscusMenu {
+  bottom: -202px;
+  right: -240px;
+  width: 30%;
+}
+
+#randomMenu {
+  top: 440px;
+  right: -37px;
+  width: 5%;
+}
+
+#flowerMenu {
+  bottom: 443px;
+  left: 230px;
+  width: 70px;
+  height: 70px;
+}
+
+@media screen and (max-width: 1110px) {
+  #flowerMenu {
+    left: 90px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #blueCatMenu,
+  #blackCatMenu,
+  #orangeCatMenu,
+  #sunflowerMenu,
+  #orchidMenu,
+  #hibiscusMenu,
+  #randomMenu,
+  #flowerMenu {
+    display: none;
+  }
+}

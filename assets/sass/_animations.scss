@@ -27,6 +27,7 @@
       visibility: visible;
     }
   }
+
 // KEYFRAMES Flottement du logo 
   @keyframes floating-animation {
     10%{
@@ -51,7 +52,6 @@
       transform: translate3d(-2px, 3px, 0);
     }
   }
-
 
                             // MISE EN PLACE DES FADE IN  //
 
@@ -193,8 +193,21 @@
  .site-footer::after,
  .site-footer ul::after {
    animation: rotate-flower var(--rotate) linear infinite;
-   line-height: 0;
+   
  }
+
+ @media screen and (min-width: 320px) and (max-width: 768px) {
+ .story h2::after,
+ .story__article::after,
+ #studio h2::after,
+ #studio h2::before,
+ .nomination::before,
+ .nomination::after,
+ .site-footer::before,
+ .site-footer::after {
+   display: none;
+ }
+}
 
 // KEYFRAMES pour la rotation des fleurs
 
@@ -209,81 +222,28 @@
 
                                         // ROTATION DES IMAGES DU MENU BURGER //
 
-// Positionnement des images (j'utilise les mêmes keyframes que pour le flottement du logo et la rotation des fleurs)
-
-#blueCatMenu,
-#blackCatMenu,
-#orangeCatMenu,
-#sunflowerMenu,
-#orchidMenu,
-#hibiscusMenu,
-#randomMenu,
-#flowerMenu {
-  position: absolute;
+// KEYFRAMES des fade in du menu pour quand je l'ouvre et le ferme
+@keyframes menuFadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+    }
+    100% {
+        opacity: 1; /* Opacité à 1 lorsque le menu est complètement apparu */
+        height: calc(100vh - 100px);
+    }
 }
 
-.logoMenu {
-  width: 200px;
+@keyframes menuFadeDown {
+    0% {
+        opacity: 1;
+        height: calc(100vh - 100px);
+    }
+    100% {
+        opacity: 0; /* Opacité à 0 lorsque le menu est complètement fermé */
+        height: 0;
+    }
 }
 
-#blueCatMenu {
-  top: 275px;
-  left: 290px;
-  width: 109.2px;
-  height: 99px;
-  animation: floating-animation 6s 2s infinite ease-in-out;
-}
 
-#blackCatMenu {
-  top: 520px;
-  right: 210px;
-  width: 154.8px;
-  height: 147.5px;
-  animation: floating-animation 6s 2s infinite ease-in-out;
-}
 
-#orangeCatMenu {
-  bottom: 150px;
-  left: 80px;
-  width: 106px;
-  height: 95.7px;
-  animation: floating-animation 6s 2s infinite ease-in-out;
-}
-
-#sunflowerMenu {
-  top: 182px;
-  right: 195px;
-  width: 216px;
-  height: 216px;
-  animation: rotate-flower var(--rotate) linear infinite;
-}
-
-#orchidMenu {
-  top: 157px;
-  left: -54px;
-  width: 172.5px;
-  height: 168.2px;
-  animation: rotate-flower var(--rotate) linear infinite;
-}
-
-#hibiscusMenu {
-  bottom: -202px;
-  right: -240px;
-  width: 30%;
-  animation: rotate-flower var(--rotate) linear infinite;
-}
-
-#randomMenu {
-  top: 440px;
-  right: -37px;
-  width: 5%;
-  animation: rotate-flower var(--rotate) linear infinite;
-}
-
-#flowerMenu {
-  bottom: 443px;
-  left: 230px;
-  width: 70px;
-  height: 70px;
-  animation: rotate-flower var(--rotate) linear infinite;
-}

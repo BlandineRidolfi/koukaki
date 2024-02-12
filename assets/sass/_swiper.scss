@@ -26,7 +26,10 @@
   .swiper {
     width: 95%;
     padding-top: 50px;
-    padding-bottom: 200px;
+    padding-bottom: 200px; 
+    
+    
+      
     
     &-slide {
       background-position: center;
@@ -41,3 +44,30 @@
       }
     }
   }
+
+  @media screen and (max-width: 919px) {
+    .swiper {
+      padding: 40px 0 40px 0;
+    
+    }
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .swiper {
+      width: 80%;    
+    }
+
+    .story #characters {
+      margin: 0;
+      height: 250px;
+      width: 90%;
+    }
+
+    .characters-swiper h3 {
+      align-self: center;
+    }
+  }
+
+    
+  
